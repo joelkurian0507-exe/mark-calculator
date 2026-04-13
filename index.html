@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marks Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Marks Calculator</h2>
+
+    <input type="number" id="sub1" placeholder="Subject 1 marks">
+    <input type="number" id="sub2" placeholder="Subject 2 marks">
+    <input type="number" id="sub3" placeholder="Subject 3 marks">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function calculate() {
+    let m1 = Number(document.getElementById("sub1").value);
+    let m2 = Number(document.getElementById("sub2").value);
+    let m3 = Number(document.getElementById("sub3").value);
+
+    if (m1 === 0 && m2 === 0 && m3 === 0) {
+        document.getElementById("result").innerText = "Enter marks :";
+        return;
+    }
+
+    let total = m1 + m2 + m3;
+    let average = total / 3;
+    let percentage = (total / 300) * 100;
+
+    document.getElementById("result").innerHTML =
+        `Average: ${average.toFixed(2)} <br>
+         Percentage: ${percentage.toFixed(2)}%`;
+}
+</script>
+
+</body>
+</html>
